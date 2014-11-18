@@ -44,23 +44,17 @@ template <class T>
 void median_heap<T>::balance() {
   int ls = less_max.size();
   int gs = greater_min.size();
-  T old_median;
-  std::cout << "Before balance: "
-	    << "Less: " << ls << "; Great: " << gs << std::endl;
-  if (ls - gs >= 1) {
-    old_median = median;
+  if (ls - gs > 1) {
+    greater_min.push(median);   
     median = less_max.top();
     less_max.pop();
-    greater_min.push(old_median);
+   
   }
   else {
     if (ls - gs <= -1) {
-      old_median = median;
+      less_max.push(median);
       median = greater_min.top();
       greater_min.pop();
-      less_max.push(old_median);
     }
   }
-  std::cout << "After balance: " 
-	    << "Less: " << ls << "; Great: " << gs << std::endl;
 }
