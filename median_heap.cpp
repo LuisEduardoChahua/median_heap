@@ -44,14 +44,13 @@ template <class T>
 void median_heap<T>::balance() {
   int ls = less_max.size();
   int gs = greater_min.size();
-  if (ls - gs > 1) {
+  if (ls - gs >= 1) {
     greater_min.push(median);   
     median = less_max.top();
     less_max.pop();
-   
   }
   else {
-    if (ls - gs <= -1) {
+    if (ls - gs < -1) {
       less_max.push(median);
       median = greater_min.top();
       greater_min.pop();
