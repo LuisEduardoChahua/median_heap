@@ -5,7 +5,7 @@ A median heap is a priority queue that can access in constant time the median va
 
 ##Operations supported
 Operation|Cost
---------------
+---------|----
 Insertion|O(log n)
 Get median|O(1)
 Remove median|O(log n)
